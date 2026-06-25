@@ -154,18 +154,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.getElementById('nav-toggle');
     const navLinksContainer = document.getElementById('nav-links');
 
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navLinksContainer.classList.toggle('open');
-    });
-
-    // Close mobile nav when a link is clicked
-    navLinksContainer.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navLinksContainer.classList.remove('open');
+    if (navToggle && navLinksContainer) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinksContainer.classList.toggle('open');
         });
-    });
+
+        // Close mobile nav when a link is clicked
+        navLinksContainer.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinksContainer.classList.remove('open');
+            });
+        });
+    }
 
 
     // ---- Typewriter Effect ----
