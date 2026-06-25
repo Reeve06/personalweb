@@ -62,7 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---- Typewriter Effect ----
     const typewriterEl = document.getElementById('typewriter');
     const phrases = [
-        'Graduate Software Engineer.'
+        'web applications.',
+        'interactive interfaces.',
+        'digital experiences.'
     ];
     let phraseIndex = 0;
     let charIndex = 0;
@@ -225,5 +227,85 @@ document.addEventListener('DOMContentLoaded', () => {
             this.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
         });
     });
+
+    // ---- Particles JS Integration ----
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 60,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": ["#7c3aed", "#3b82f6", "#ffffff"]
+                },
+                "shape": {
+                    "type": "circle",
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#7c3aed",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "window",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 200,
+                        "line_linked": {
+                            "opacity": 0.4
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    }
 
 });
