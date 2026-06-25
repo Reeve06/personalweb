@@ -9,13 +9,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---- Preloader ----
     const preloader = document.getElementById('preloader');
-    if (preloader) {
-        setTimeout(() => {
-            preloader.style.opacity = '0';
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 500);
-        }, 1500); // Wait 1.5 seconds before fading out
+    const preloaderBar = document.getElementById('preloader-bar');
+    const preloaderPercentage = document.getElementById('preloader-percentage');
+
+    if (preloader && preloaderBar && preloaderPercentage) {
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += Math.floor(Math.random() * 10) + 5;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+                setTimeout(() => {
+                    preloader.classList.add('loaded');
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 800); // Matches the CSS transition duration
+                }, 400); // Small delay after hitting 100%
+            }
+            preloaderBar.style.width = `${progress}%`;
+            preloaderPercentage.textContent = `${progress}%`;
+        }, 50); // Updates every 50ms
     }
 
     // ---- Navbar Scroll Effect ----
