@@ -62,11 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---- Typewriter Effect ----
     const typewriterEl = document.getElementById('typewriter');
     const phrases = [
-        'web applications.',
-        'user experiences.',
-        'scalable APIs.',
-        'clean code.',
-        'digital products.',
+        'Graduate Software Engineer.'
     ];
     let phraseIndex = 0;
     let charIndex = 0;
@@ -157,57 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // ---- Testimonials Carousel ----
-    const track = document.getElementById('testimonials-track');
-    const prevBtn = document.getElementById('prev-testimonial');
-    const nextBtn = document.getElementById('next-testimonial');
-    const dotsContainer = document.getElementById('carousel-dots');
-    const cards = track.querySelectorAll('.testimonial-card');
-    let currentSlide = 0;
 
-    // Create dots
-    cards.forEach((_, i) => {
-        const dot = document.createElement('div');
-        dot.classList.add('carousel-dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-    });
-
-    function goToSlide(index) {
-        currentSlide = index;
-        track.style.transform = `translateX(-${index * 100}%)`;
-
-        dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-    }
-
-    prevBtn.addEventListener('click', () => {
-        currentSlide = (currentSlide - 1 + cards.length) % cards.length;
-        goToSlide(currentSlide);
-    });
-
-    nextBtn.addEventListener('click', () => {
-        currentSlide = (currentSlide + 1) % cards.length;
-        goToSlide(currentSlide);
-    });
-
-    // Auto-play carousel
-    let carouselInterval = setInterval(() => {
-        currentSlide = (currentSlide + 1) % cards.length;
-        goToSlide(currentSlide);
-    }, 5000);
-
-    // Pause on hover
-    const carouselContainer = document.querySelector('.testimonials-carousel');
-    carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
-    carouselContainer.addEventListener('mouseleave', () => {
-        carouselInterval = setInterval(() => {
-            currentSlide = (currentSlide + 1) % cards.length;
-            goToSlide(currentSlide);
-        }, 5000);
-    });
 
 
     // ---- Contact Form ----
