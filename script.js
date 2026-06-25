@@ -7,6 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+    // ---- Preloader ----
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 1500); // Wait 1.5 seconds before fading out
+    }
+
     // ---- Navbar Scroll Effect ----
     const navbar = document.getElementById('main-nav');
     const sections = document.querySelectorAll('section[id]');
@@ -62,9 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---- Typewriter Effect ----
     const typewriterEl = document.getElementById('typewriter');
     const phrases = [
-        'web applications.',
-        'interactive interfaces.',
-        'digital experiences.'
+        'Graduate Software Engineer.'
     ];
     let phraseIndex = 0;
     let charIndex = 0;

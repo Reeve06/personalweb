@@ -698,6 +698,71 @@ img {
   display: block;
 }
 
+/* ---- Particles JS Background ---- */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ---- Preloader ---- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-primary);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.preloader-text {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: 0.1em;
+    animation: pulse 1.5s infinite;
+}
+
+.preloader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-color);
+    border-top: 3px solid var(--accent-start);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+
 /* ---- Ambient Canvas Background ---- */
 
 #ambient-canvas {
@@ -788,19 +853,20 @@ img {
 }
 
 .nav-logo {
-  font-family: var(--font-mono);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  transition: transform 0.3s var(--ease-spring);
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    transition: transform 0.3s var(--ease-spring);
 }
 
 .nav-logo:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .logo-bracket {
-  color: var(--accent-mid);
+    color: var(--text-secondary);
+    font-weight: 600;
 }
 
 .nav-links {
@@ -2001,70 +2067,4 @@ img {
     width: 48px;
     height: 1px;
   }
-}
-
-/* ---- Particles JS Background ---- */
-#particles-js {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: auto;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 10;
-}
-
-/* ---- Stats Container ---- */
-.stats-container {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    margin-top: 64px;
-    padding-top: 48px;
-    border-top: 1px solid var(--border-color);
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 1;
-    margin-bottom: 8px;
-    background: linear-gradient(135deg, #a855f7, #3b82f6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-}
-
-.stat-plus {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #a1a1aa; /* text-secondary */
-    -webkit-text-fill-color: #a1a1aa;
-    vertical-align: top;
-    margin-left: 2px;
-}
-
-.stat-label {
-    font-size: 0.875rem;
-    color: #a1a1aa; /* text-secondary */
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-@media (max-width: 768px) {
-    .stats-container {
-        flex-direction: column;
-        gap: 32px;
-        padding-top: 32px;
-    }
 }
