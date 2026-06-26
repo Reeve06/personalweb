@@ -616,11 +616,11 @@ video {
 
 :root {
   /* Core Palette */
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
-  --bg-tertiary: #111111;
-  --bg-card: #0a0a0a;
-  --bg-card-hover: #111111;
+  --bg-primary: #0a0014;
+  --bg-secondary: #120024;
+  --bg-tertiary: #1a0033;
+  --bg-card: #120024;
+  --bg-card-hover: #1a0033;
   /* Text */
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
@@ -1477,6 +1477,75 @@ img {
   gap: 16px;
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+/* ---- Preloader ---- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-primary);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.preloader-logo {
+    font-family: var(--font-primary);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.preloader-bar {
+    width: 200px;
+    height: 4px;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 0.4s ease 0.4s forwards;
+}
+
+.preloader-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #7c3aed, #3b82f6);
+    border-radius: 4px;
+    animation: loadProgress 1.6s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes loadProgress {
+    0% { width: 0%; }
+    50% { width: 60%; }
+    100% { width: 100%; }
 }
 
 .project-card:hover .project-overlay {
